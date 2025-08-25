@@ -1,0 +1,10 @@
+services:
+  politeness:
+    build:
+      context: ./PyDocker            # folder with Dockerfile.polite + politeness_api.py
+      dockerfile: Dockerfile.polite
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./Models/politeness_detector_e99_lr1e-08:/app/model:ro
+    restart: unless-stopped

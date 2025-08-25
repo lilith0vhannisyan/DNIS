@@ -1,0 +1,576 @@
+@prefix : <http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix Clocktower: <http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#> .
+@prefix untitled-ontology-15: <http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#> .
+@base <http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/> .
+
+<http://www.semanticweb.org/user/ontologies/2025/7/Clocktower> rdf:type owl:Ontology ;
+                                                                owl:versionIRI <http://www.semanticweb.org/user/ontologies/2025/7/Clocktower> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#givesClue
+Clocktower:givesClue rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :NPC ;
+                     rdfs:range Clocktower:Clue .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasCurrentEmotionalState
+Clocktower:hasCurrentEmotionalState rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:domain :NPC ;
+                                    rdfs:range Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasEmotionalRange
+Clocktower:hasEmotionalRange rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             rdfs:domain :NPC ;
+                             rdfs:range Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#isAboutItem
+Clocktower:isAboutItem rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain Clocktower:Clue ;
+                       rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#isAffectedByTrustOf
+Clocktower:isAffectedByTrustOf rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf owl:topObjectProperty ;
+                               rdfs:domain Clocktower:TrustBarrier ;
+                               rdfs:range :NPC .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#knowsAbout
+Clocktower:knowsAbout rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain :NPC ;
+                      rdfs:range untitled-ontology-15:Puzzle ,
+                                 :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#currentLocation
+untitled-ontology-15:currentLocation rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     rdfs:domain untitled-ontology-15:Player ;
+                                     rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#determinesOutcome
+untitled-ontology-15:determinesOutcome rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf owl:topObjectProperty ;
+                                       rdfs:domain :PuzzleFlag ;
+                                       rdfs:range :Ending .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#grantsRewardItem
+untitled-ontology-15:grantsRewardItem rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf owl:topObjectProperty ;
+                                      rdfs:domain untitled-ontology-15:Puzzle ;
+                                      rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#hasInventory
+untitled-ontology-15:hasInventory rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                  rdfs:domain untitled-ontology-15:Player ;
+                                  rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#hasKeyProp
+untitled-ontology-15:hasKeyProp rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                rdfs:domain :Location ;
+                                rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#influencesItemAvailability
+untitled-ontology-15:influencesItemAvailability rdf:type owl:ObjectProperty ;
+                                                rdfs:subPropertyOf owl:topObjectProperty ;
+                                                rdfs:domain :NPC ;
+                                                rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#isAcquiredBy
+untitled-ontology-15:isAcquiredBy rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                  rdfs:domain :Item ;
+                                  rdfs:range untitled-ontology-15:Player .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#isLocatedIn
+untitled-ontology-15:isLocatedIn rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                 rdfs:domain untitled-ontology-15:Puzzle ;
+                                 rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#isUsedFor
+untitled-ontology-15:isUsedFor rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf owl:topObjectProperty ;
+                               rdfs:domain :Item ;
+                               rdfs:range untitled-ontology-15:Puzzle ,
+                                          :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#providesHintFor
+untitled-ontology-15:providesHintFor rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     rdfs:domain :NPC ;
+                                     rdfs:range untitled-ontology-15:Puzzle ,
+                                                :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#setsPuzzleFlag
+untitled-ontology-15:setsPuzzleFlag rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf owl:topObjectProperty ;
+                                    rdfs:domain untitled-ontology-15:Puzzle ;
+                                    rdfs:range :PuzzleFlag .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/associatedWith
+:associatedWith rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :NPC ;
+                rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/foundAt
+:foundAt rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Item ;
+         rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/gives
+:gives rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :Location ;
+       rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasNextTrigger
+:hasNextTrigger rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Location ;
+                rdfs:range :PuzzleFlag .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/requiresItem
+:requiresItem rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain untitled-ontology-15:Puzzle ,
+                          :Location ;
+              rdfs:range :Item .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/unlocks
+:unlocks rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdfs:domain :Item ;
+         rdfs:range :Location ,
+                    :PuzzleFlag .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#canInitiateConversation
+Clocktower:canInitiateConversation rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf owl:topDataProperty ;
+                                   rdfs:domain :NPC ;
+                                   rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasAge
+Clocktower:hasAge rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :NPC ;
+                  rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasCoreAttitude
+Clocktower:hasCoreAttitude rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:domain :NPC ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasDialogueText
+Clocktower:hasDialogueText rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf owl:topDataProperty ;
+                           rdfs:domain Clocktower:Clue ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#hasNeutralHint
+Clocktower:hasNeutralHint rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :NPC ;
+                          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#requiresTrustScoreGreaterThanOrEqual
+Clocktower:requiresTrustScoreGreaterThanOrEqual rdf:type owl:DatatypeProperty ;
+                                                rdfs:subPropertyOf owl:topDataProperty ;
+                                                rdfs:domain Clocktower:TrustBarrier ;
+                                                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasBadHint
+:hasBadHint rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :NPC ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasGoodHint
+:hasGoodHint rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :NPC ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasName
+:hasName rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain owl:Thing ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasPersona
+:hasPersona rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :NPC ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasTriggerCondition
+:hasTriggerCondition rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Ending ,
+                                 :PuzzleFlag ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasTrustStart
+:hasTrustStart rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :NPC ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasUse
+:hasUse rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Item ;
+        rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#Clue
+Clocktower:Clue rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#EmotionalState
+Clocktower:EmotionalState rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#TrustBarrier
+Clocktower:TrustBarrier rdf:type owl:Class ;
+                        rdfs:subClassOf untitled-ontology-15:Barrier .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#Barrier
+untitled-ontology-15:Barrier rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#Player
+untitled-ontology-15:Player rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15#Puzzle
+untitled-ontology-15:Puzzle rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/Ending
+:Ending rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/Item
+:Item rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/NPC
+:NPC rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/PuzzleFlag
+:PuzzleFlag rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#Angry
+Clocktower:Angry rdf:type owl:NamedIndividual ,
+                          Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#Friendly
+Clocktower:Friendly rdf:type owl:NamedIndividual ,
+                             Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#Reserved
+Clocktower:Reserved rdf:type owl:NamedIndividual ,
+                             Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#Sad
+Clocktower:Sad rdf:type owl:NamedIndividual ,
+                        Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#alleyGatePuzzle
+Clocktower:alleyGatePuzzle rdf:type owl:NamedIndividual ,
+                                    untitled-ontology-15:Puzzle ;
+                           untitled-ontology-15:isLocatedIn :alley ;
+                           untitled-ontology-15:setsPuzzleFlag :gateUnlocked ;
+                           :hasTriggerCondition "Emblem used on gate" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#bookOrderingPuzzle
+Clocktower:bookOrderingPuzzle rdf:type owl:NamedIndividual ,
+                                       untitled-ontology-15:Puzzle ;
+                              untitled-ontology-15:isLocatedIn :library ;
+                              :hasTriggerCondition "Books in correct order" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#catacombRotationPuzzle
+Clocktower:catacombRotationPuzzle rdf:type owl:NamedIndividual ,
+                                           untitled-ontology-15:Puzzle ;
+                                  untitled-ontology-15:isLocatedIn :alley .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#clocktowerPuzzle
+Clocktower:clocktowerPuzzle rdf:type owl:NamedIndividual ,
+                                     untitled-ontology-15:Puzzle ;
+                            untitled-ontology-15:isLocatedIn :tower ;
+                            :hasTriggerCondition "All gears installed" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#forgePuzzle
+Clocktower:forgePuzzle rdf:type owl:NamedIndividual ,
+                                untitled-ontology-15:Puzzle ;
+                       untitled-ontology-15:isLocatedIn :forge ;
+                       :hasTriggerCondition "Bellows used with scrap metal" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#garrickGearClue
+Clocktower:garrickGearClue rdf:type owl:NamedIndividual ,
+                                    Clocktower:Clue ;
+                           Clocktower:isAboutItem :gear_left ,
+                                                  :gear_right ;
+                           Clocktower:hasDialogueText "Good metal and good manners—pump the bellows thrice, oil the anvil, and we’ll forge both halves." .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#irisEmblemClue
+Clocktower:irisEmblemClue rdf:type owl:NamedIndividual ,
+                                   Clocktower:Clue ;
+                          Clocktower:isAboutItem :emblem ;
+                          Clocktower:hasDialogueText "Masters gave me the Brass Emblem before we lost, maybe he was feels somethimg stranger." .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#joyful
+Clocktower:joyful rdf:type owl:NamedIndividual ,
+                           Clocktower:EmotionalState .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/Clocktower#piperCatacombsClue
+Clocktower:piperCatacombsClue rdf:type owl:NamedIndividual ,
+                                       Clocktower:Clue ;
+                              Clocktower:isAboutItem Clocktower:catacombRotationPuzzle ;
+                              Clocktower:hasDialogueText "You can open the catacomb with the help of the Brass Emblem by rotating it in a special order." .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/alley
+:alley rdf:type owl:NamedIndividual ,
+                :Location ;
+       :hasNextTrigger :gateUnlocked .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/booksSolved
+:booksSolved rdf:type owl:NamedIndividual ,
+                      :PuzzleFlag .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/catacomb
+:catacomb rdf:type owl:NamedIndividual ,
+                   :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/emblem
+:emblem rdf:type owl:NamedIndividual ,
+                 :Item ;
+        :foundAt :library ;
+        :hasUse "Unlock the Steam Catacombs in Misty Alley" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/fogPrevails
+:fogPrevails rdf:type owl:NamedIndividual ,
+                      :Ending .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/forge
+:forge rdf:type owl:NamedIndividual ,
+                :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/garrick
+:garrick rdf:type owl:NamedIndividual ,
+                  :NPC ;
+         Clocktower:givesClue Clocktower:garrickGearClue ;
+         Clocktower:hasCurrentEmotionalState Clocktower:Reserved ;
+         Clocktower:hasEmotionalRange Clocktower:Angry ,
+                                      Clocktower:Friendly ,
+                                      Clocktower:Reserved ;
+         :associatedWith :gear_left ;
+         Clocktower:canInitiateConversation "false"^^xsd:boolean ;
+         Clocktower:hasAge 60 ;
+         Clocktower:hasCoreAttitude "Gruff but honorable" ;
+         Clocktower:hasNeutralHint "I'll give you half at best" ;
+         :hasGoodHint "Pump 3x, oil, both halves" ;
+         :hasName "Garrick" ;
+         :hasTrustStart 0 .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/gateUnlocked
+:gateUnlocked rdf:type owl:NamedIndividual ,
+                       :PuzzleFlag .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/gear_left
+:gear_left rdf:type owl:NamedIndividual ,
+                    :Item ;
+           :foundAt :forge ;
+           :hasUse "Tower slot" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/gear_right
+:gear_right rdf:type owl:NamedIndividual ,
+                     :Item ;
+            :foundAt :forge ;
+            :hasUse "Tower slot" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/hasLeftGear
+:hasLeftGear rdf:type owl:NamedIndividual ,
+                      :PuzzleFlag .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/iris
+:iris rdf:type owl:NamedIndividual ,
+               :NPC ;
+      Clocktower:givesClue Clocktower:irisEmblemClue ;
+      Clocktower:hasCurrentEmotionalState Clocktower:Reserved ;
+      Clocktower:hasEmotionalRange Clocktower:Angry ,
+                                   Clocktower:Friendly ,
+                                   Clocktower:Reserved ;
+      :associatedWith :emblem ;
+      Clocktower:canInitiateConversation "true"^^xsd:boolean ;
+      Clocktower:hasAge 32 ;
+      Clocktower:hasCoreAttitude "kind-hearted scholar" ;
+      Clocktower:hasNeutralHint "Change order of the books in bookshel" ;
+      :hasBadHint "I don't know, but know that the emblem is there" ;
+      :hasGoodHint "Order by dates" ;
+      :hasName "Iris" ;
+      :hasTrustStart 0 .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/library
+:library rdf:type owl:NamedIndividual ,
+                  :Location ;
+         untitled-ontology-15:hasKeyProp :emblem ;
+         :hasNextTrigger :gateUnlocked .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/oil_can
+:oil_can rdf:type owl:NamedIndividual ,
+                  :Item ;
+         :foundAt :plaza ;
+         :hasUse "Forge step + Tower slot" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/partialDawn
+:partialDawn rdf:type owl:NamedIndividual ,
+                      :Ending .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/piper
+:piper rdf:type owl:NamedIndividual ,
+                :NPC ;
+       Clocktower:givesClue Clocktower:piperCatacombsClue ;
+       Clocktower:hasCurrentEmotionalState Clocktower:joyful ;
+       Clocktower:hasEmotionalRange Clocktower:Friendly ,
+                                    Clocktower:Sad ,
+                                    Clocktower:joyful ;
+       untitled-ontology-15:providesHintFor Clocktower:catacombRotationPuzzle ;
+       Clocktower:canInitiateConversation "false"^^xsd:boolean ;
+       Clocktower:hasAge 5 ;
+       Clocktower:hasCoreAttitude "playful kid" ;
+       Clocktower:hasNeutralHint "Maybe you can look around some hints" ;
+       :hasBadHint "I don't know" ;
+       :hasGoodHint "See big rock on which are writed order of rotation" ;
+       :hasName "Piper" ;
+       :hasTrustStart 0 .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/plaza
+:plaza rdf:type owl:NamedIndividual ,
+                :Location ;
+       untitled-ontology-15:hasKeyProp :oil_can .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/scrap_metal
+:scrap_metal rdf:type owl:NamedIndividual ,
+                      :Item ;
+             :foundAt :catacomb ;
+             :hasUse "Forge ingredient" .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/sunriseVictory
+:sunriseVictory rdf:type owl:NamedIndividual ,
+                         :Ending .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/tower
+:tower rdf:type owl:NamedIndividual ,
+                :Location .
+
+
+###  http://www.semanticweb.org/user/ontologies/2025/7/untitled-ontology-15/winding_key
+:winding_key rdf:type owl:NamedIndividual ,
+                      :Item ;
+             :foundAt :catacomb ;
+             :hasUse "Tower slot" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

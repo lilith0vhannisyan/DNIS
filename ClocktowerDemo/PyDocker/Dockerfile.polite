@@ -1,0 +1,30 @@
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    TOKENIZERS_PARALLELISM=false
+
+# Needed by HuggingFace tokenizers wheels
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends libgomp1 \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# 1) Install CPU-only PyTorch first (no CUDA downloads)
+RUN pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cpu torch==2.2.2+cpu
+
+# 2) Then the rest (pin numpy<2 to avoid the 1.x/2.x ABI break)
+RUN pip install --no-cache-dir \
+      "numpy<2" \
+      "fastapi==0.112.0" \
+      "uvicorn[standard]==0.30.0" \
+      "requests==2.32.3" \
+      "tokenizers==0.19.1" \
+      "transformers==4.41.2"
+
+# 3) Your app
+COPY politeness_api.py /app/politeness_api.py
+
+EXPOSE 8001
+CMD ["uvicorn","politeness_api:app","--host","0.0.0.0","--port","8001"]
